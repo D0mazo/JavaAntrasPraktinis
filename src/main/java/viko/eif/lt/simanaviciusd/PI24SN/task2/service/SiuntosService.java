@@ -19,7 +19,7 @@ public interface SiuntosService {
      * @return siuntų sąrašas
      */
     @WebMethod
-    List<Siunta> gaуtiVisasSiuntas();
+    List<Siunta> gautiVisasSiuntas();
 
     /**
      * Grąžina siuntą pagal ID.
@@ -37,7 +37,7 @@ public interface SiuntosService {
      * @return pridėta siunta
      */
     @WebMethod
-    Siunta pridеtiSiunta(@WebParam(name = "siunta") Siunta siunta);
+    Siunta pridetiSiunta(@WebParam(name = "siunta") Siunta siunta);
 
     /**
      * Atnaujina esamos siuntos pristatymo statusą.

@@ -62,7 +62,7 @@ public class SiuntosServiceImpl implements SiuntosService {
      * {@inheritDoc}
      */
     @Override
-    public List<Siunta> gaуtiVisasSiuntas() {
+    public List<Siunta> gautiVisasSiuntas() {
         return new ArrayList<>(siuntos);
     }
 
@@ -81,7 +81,7 @@ public class SiuntosServiceImpl implements SiuntosService {
      * {@inheritDoc}
      */
     @Override
-    public Siunta pridеtiSiunta(Siunta siunta) {
+    public Siunta pridetiSiunta(Siunta siunta) {
         siuntos.add(siunta);
         return siunta;
     }
