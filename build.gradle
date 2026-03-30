@@ -16,6 +16,10 @@ repositories {
 	mavenCentral()
 }
 
+configurations {
+	jaxws
+}
+
 dependencies {
 	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter'
@@ -32,10 +36,47 @@ dependencies {
 
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'  // ← ADD THIS
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// wsimport tool
+	jaxws 'com.sun.xml.ws:jaxws-tools:4.0.2'
+	jaxws 'com.sun.xml.ws:jaxws-rt:4.0.2'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sourceSets {
+	test {
+		java {
+			srcDirs = ['src/test/java']
+		}
+	}
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+	}
+}
+
+task wsimport {
+	doLast {
+		def outputDir = file('src/main/java')
+		outputDir.mkdirs()
+
+		ant.taskdef(
+				name: 'wsimport',
+				classname: 'com.sun.tools.ws.ant.WsImport',
+				classpath: configurations.jaxws.asPath
+		)
+		ant.wsimport(
+				keep: true,
+				verbose: true,
+				destdir: outputDir.absolutePath,
+				package: 'viko.eif.lt.simanaviciusd.PI24SN.task2.generated',
+				wsdl: 'http://localhost:8080/ws/siuntos?wsdl'
+		)
+	}
 }
