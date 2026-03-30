@@ -4,6 +4,8 @@ import jakarta.xml.ws.Endpoint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import viko.eif.lt.simanaviciusd.PI24SN.task2.service.SiuntosServiceImpl;
+import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.HtmlTransformer;
+import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.PdfTransformer;
 import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.TransformationService;
 
 /**
@@ -30,8 +32,12 @@ public class Task2Application {
 		System.out.println("Web servisas paleistas: " + ENDPOINT_URL);
 		System.out.println("WSDL adresas: " + ENDPOINT_URL + "?wsdl");
 
-		// Vykdyti XSL transformacijas
-		TransformationService transformationService = new TransformationService();
+		// Vykdyti XSL transformacijas (Dependency Injection)
+		TransformationService transformationService = new TransformationService(
+				new HtmlTransformer(),
+				new PdfTransformer()
+		);
+
 		try {
 			transformationService.transformToHtml("output.html");
 			transformationService.transformToPdf("output.pdf");

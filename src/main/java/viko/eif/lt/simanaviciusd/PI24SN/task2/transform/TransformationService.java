@@ -1,40 +1,40 @@
 package viko.eif.lt.simanaviciusd.PI24SN.task2.transform;
 
-import org.apache.fop.apps.FOPException;
-
 import javax.xml.transform.TransformerException;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
 /**
  * Servisas, valdantis visas transformacijas.
- * Naudoja {@link HtmlTransformer} ir {@link PdfTransformer}
- * XML duomenims paversti į HTML ir PDF formatus.
+ * Naudoja {@link Transformer} sąsają pagal Dependency Inversion principą.
  */
 public class TransformationService {
 
     /** HTML transformacijos objektas. */
-    private final HtmlTransformer htmlTransformer;
+    private final Transformer htmlTransformer;
 
     /** PDF transformacijos objektas. */
-    private final PdfTransformer pdfTransformer;
+    private final Transformer pdfTransformer;
 
     /**
-     * Konstruktorius, inicializuojantis transformatorius.
+     * Konstruktorius su injektuojamais transformatoriais (Dependency Injection).
+     *
+     * @param htmlTransformer HTML transformatorius
+     * @param pdfTransformer  PDF transformatorius
      */
-    public TransformationService() {
-        this.htmlTransformer = new HtmlTransformer();
-        this.pdfTransformer = new PdfTransformer();
+    public TransformationService(Transformer htmlTransformer,
+                                 Transformer pdfTransformer) {
+        this.htmlTransformer = htmlTransformer;
+        this.pdfTransformer = pdfTransformer;
     }
 
     /**
      * Vykdo XML transformaciją į HTML formatą.
      *
      * @param outputPath išvesties HTML failo kelias
-     * @throws TransformerException jei transformacija nepavyksta
+     * @throws Exception jei transformacija nepavyksta
      */
-    public void transformToHtml(String outputPath) throws TransformerException {
+    public void transformToHtml(String outputPath) throws Exception {
         File xmlFile = getXmlFile();
         File outputFile = new File(outputPath);
         htmlTransformer.transform(xmlFile, outputFile);
@@ -44,12 +44,9 @@ public class TransformationService {
      * Vykdo XML transformaciją į PDF formatą.
      *
      * @param outputPath išvesties PDF failo kelias
-     * @throws TransformerException jei XSL transformacija nepavyksta
-     * @throws FOPException         jei FOP apdorojimas nepavyksta
-     * @throws IOException          jei įvyksta įvesties/išvesties klaida
+     * @throws Exception jei transformacija nepavyksta
      */
-    public void transformToPdf(String outputPath)
-            throws TransformerException, FOPException, IOException {
+    public void transformToPdf(String outputPath) throws Exception {
         File xmlFile = getXmlFile();
         File outputFile = new File(outputPath);
         pdfTransformer.transform(xmlFile, outputFile);

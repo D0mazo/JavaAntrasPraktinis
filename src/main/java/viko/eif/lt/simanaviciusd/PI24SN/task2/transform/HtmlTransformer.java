@@ -1,6 +1,5 @@
 package viko.eif.lt.simanaviciusd.PI24SN.task2.transform;
 
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
@@ -12,7 +11,7 @@ import java.io.InputStream;
  * Klasė, atsakinga už XML duomenų transformavimą į HTML formatą
  * naudojant XSL stilių lapą.
  */
-public class HtmlTransformer {
+public class HtmlTransformer implements Transformer {
 
     /** XSL failo kelias resursų aplanke. */
     private static final String XSL_PATH = "/to-html.xsl";
@@ -24,6 +23,7 @@ public class HtmlTransformer {
      * @param outputFile išvesties HTML failas
      * @throws TransformerException jei transformacija nepavyksta
      */
+    @Override
     public void transform(File xmlFile, File outputFile) throws TransformerException {
         InputStream xslStream = getClass().getResourceAsStream(XSL_PATH);
 
@@ -32,7 +32,8 @@ public class HtmlTransformer {
         }
 
         TransformerFactory factory = TransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer(new StreamSource(xslStream));
+        javax.xml.transform.Transformer transformer =
+                factory.newTransformer(new StreamSource(xslStream));
 
         transformer.transform(
                 new StreamSource(xmlFile),
