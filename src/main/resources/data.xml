@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siuntos>
+    <siunta>
+        <id>1</id>
+        <gavėjas>Jonas Jonaitis</gavėjas>
+        <adresas>Gedimino pr. 1, Vilnius</adresas>
+        <svoris>2.5</svoris>
+        <kaina>12.99</kaina>
+        <pristatyta>true</pristatyta>
+        <prioritetas>A</prioritetas>
+        <produktai>
+            <produktas>
+                <id>1</id>
+                <pavadinimas>Nešiojamas kompiuteris</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>899.99</kaina>
+            </produktas>
+            <produktas>
+                <id>2</id>
+                <pavadinimas>Pelė</pavadinimas>
+                <kiekis>2</kiekis>
+                <kaina>25.00</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
+    <siunta>
+        <id>2</id>
+        <gavėjas>Petras Petraitis</gavėjas>
+        <adresas>Laisvės al. 15, Kaunas</adresas>
+        <svoris>0.8</svoris>
+        <kaina>5.49</kaina>
+        <pristatyta>false</pristatyta>
+        <prioritetas>B</prioritetas>
+        <produktai>
+            <produktas>
+                <id>3</id>
+                <pavadinimas>Knyga</pavadinimas>
+                <kiekis>3</kiekis>
+                <kaina>14.99</kaina>
+            </produktas>
+            <produktas>
+                <id>4</id>
+                <pavadinimas>Sąsiuvinis</pavadinimas>
+                <kiekis>5</kiekis>
+                <kaina>2.50</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
+    <siunta>
+        <id>3</id>
+        <gavėjas>Ona Onaitė</gavėjas>
+        <adresas>Tilžės g. 22, Klaipėda</adresas>
+        <svoris>5.1</svoris>
+        <kaina>18.00</kaina>
+        <pristatyta>true</pristatyta>
+        <prioritetas>A</prioritetas>
+        <produktai>
+            <produktas>
+                <id>5</id>
+                <pavadinimas>Sporto bateliai</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>79.99</kaina>
+            </produktas>
+            <produktas>
+                <id>6</id>
+                <pavadinimas>Kojinės</pavadinimas>
+                <kiekis>4</kiekis>
+                <kaina>4.99</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
+</siuntos>

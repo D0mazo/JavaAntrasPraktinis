@@ -18,7 +18,20 @@ repositories {
 }
 
 dependencies {
+	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter'
+
+	// JAX-WS Runtime (Eclipse Metro) - removed from JDK 11+
+	implementation 'com.sun.xml.ws:jaxws-rt:4.0.2'
+
+	// JAXB - removed from JDK 11+
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
+	implementation 'com.sun.xml.bind:jaxb-impl:4.0.3'
+
+	// Apache FOP - XSL-FO to PDF transformation
+	implementation 'org.apache.xmlgraphics:fop:2.9'
+
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
