@@ -132,4 +132,27 @@
             </produktas>
         </produktai>
     </siunta>
+    <siunta>
+        <id>7</id>
+        <gavėjas>Domass Domutis</gavėjas>
+        <adresas>Nesakysiu nenoriu atskleisti</adresas>
+        <svoris>0.5</svoris>
+        <kaina>15.49</kaina>
+        <pristatyta>false</pristatyta>
+        <prioritetas>A</prioritetas>
+        <produktai>
+            <produktas>
+                <id>12</id>
+                <pavadinimas>Ausinės</pavadinimas>
+                <kiekis>2</kiekis>
+                <kaina>59.99</kaina>
+            </produktas>
+            <produktas>
+                <id>13</id>
+                <pavadinimas>kebabas</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>12.99</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
 </siuntos>
