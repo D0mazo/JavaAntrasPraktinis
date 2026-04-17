@@ -1,14 +1,28 @@
 package viko.eif.lt.simanaviciusd.PI24SN.task2.model;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 import java.util.List;
 
 /**
  * Klasė, reprezentuojanti siuntą logistikos sistemoje.
  * Siunta turi sąrašą {@link Produktas} objektų.
  */
+@Entity
+@Table(name = "siuntos")
 public class Siunta {
 
     /** Unikalus siuntos identifikatorius. */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     /** Siuntos gavėjo vardas ir pavardė. */
@@ -30,10 +44,12 @@ public class Siunta {
     private char prioritetas;
 
     /** Produktų, esančių siuntoje, sąrašas. */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "siunta_id")
     private List<Produktas> produktai;
 
     /**
-     * Tuščias konstruktorius, reikalingas JAXB serializacijai.
+     * Tuščias konstruktorius, reikalingas JAXB ir JPA serializacijai.
      */
     public Siunta() {
     }

@@ -1,11 +1,21 @@
 package viko.eif.lt.simanaviciusd.PI24SN.task2.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * Klasė, reprezentuojanti produktą siuntoje.
  */
+@Entity
+@Table(name = "produktai")
 public class Produktas {
 
     /** Unikalus produkto identifikatorius. */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     /** Produkto pavadinimas. */
@@ -24,7 +34,7 @@ public class Produktas {
     private boolean trapus;
 
     /**
-     * Tuščias konstruktorius, reikalingas JAXB serializacijai.
+     * Tuščias konstruktorius, reikalingas JAXB ir JPA serializacijai.
      */
     public Produktas() {
     }

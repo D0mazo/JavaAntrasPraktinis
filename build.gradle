@@ -24,6 +24,13 @@ dependencies {
 	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter'
 
+	// Spring Data JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// SQLite
+	implementation 'org.xerial:sqlite-jdbc:3.45.1.0'
+	implementation 'org.hibernate.orm:hibernate-community-dialects:6.4.4.Final'
+
 	// JAX-WS Runtime (Eclipse Metro) - removed from JDK 11+
 	implementation 'com.sun.xml.ws:jaxws-rt:4.0.2'
 

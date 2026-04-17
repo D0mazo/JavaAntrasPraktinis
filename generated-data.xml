@@ -69,4 +69,67 @@
             </produktas>
         </produktai>
     </siunta>
+    <siunta>
+        <id>4</id>
+        <gavėjas>Tomas Tomaitis</gavėjas>
+        <adresas>Savanorių pr. 6, Kaunas</adresas>
+        <svoris>1.2</svoris>
+        <kaina>7.99</kaina>
+        <pristatyta>false</pristatyta>
+        <prioritetas>B</prioritetas>
+        <produktai>
+            <produktas>
+                <id>7</id>
+                <pavadinimas>Telefonas</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>399.99</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
+    <siunta>
+        <id>5</id>
+        <gavėjas>Laura Lauraitė</gavėjas>
+        <adresas>Gedimino pr. 10, Vilnius</adresas>
+        <svoris>0.5</svoris>
+        <kaina>15.49</kaina>
+        <pristatyta>false</pristatyta>
+        <prioritetas>A</prioritetas>
+        <produktai>
+            <produktas>
+                <id>8</id>
+                <pavadinimas>Ausinės</pavadinimas>
+                <kiekis>2</kiekis>
+                <kaina>59.99</kaina>
+            </produktas>
+            <produktas>
+                <id>9</id>
+                <pavadinimas>Įkroviklis</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>12.99</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
+    <siunta>
+        <id>6</id>
+        <gavėjas>Domas Domutis</gavėjas>
+        <adresas>Nesakysiu nenoriu atskleisti</adresas>
+        <svoris>0.5</svoris>
+        <kaina>15.49</kaina>
+        <pristatyta>false</pristatyta>
+        <prioritetas>A</prioritetas>
+        <produktai>
+            <produktas>
+                <id>10</id>
+                <pavadinimas>Ausinės</pavadinimas>
+                <kiekis>2</kiekis>
+                <kaina>59.99</kaina>
+            </produktas>
+            <produktas>
+                <id>11</id>
+                <pavadinimas>kebabas</pavadinimas>
+                <kiekis>1</kiekis>
+                <kaina>12.99</kaina>
+            </produktas>
+        </produktai>
+    </siunta>
 </siuntos>
