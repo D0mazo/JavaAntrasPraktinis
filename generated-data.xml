@@ -11,22 +11,22 @@
         <produktai>
             <produktas>
                 <id>1</id>
-                <pavadinimas>Nešiojamas kompiuteris</pavadinimas>
+                <pavadinimas>Nesiojamas kompiuteris</pavadinimas>
                 <kiekis>1</kiekis>
                 <kaina>899.99</kaina>
             </produktas>
             <produktas>
                 <id>2</id>
-                <pavadinimas>Pelė</pavadinimas>
+                <pavadinimas>Pele</pavadinimas>
                 <kiekis>2</kiekis>
-                <kaina>25.00</kaina>
+                <kaina>25.0</kaina>
             </produktas>
         </produktai>
     </siunta>
     <siunta>
         <id>2</id>
         <gavėjas>Petras Petraitis</gavėjas>
-        <adresas>Laisvės al. 15, Kaunas</adresas>
+        <adresas>Laisves al. 15, Kaunas</adresas>
         <svoris>0.8</svoris>
         <kaina>5.49</kaina>
         <pristatyta>false</pristatyta>
@@ -40,18 +40,18 @@
             </produktas>
             <produktas>
                 <id>4</id>
-                <pavadinimas>Sąsiuvinis</pavadinimas>
+                <pavadinimas>Sasiuvinis</pavadinimas>
                 <kiekis>5</kiekis>
-                <kaina>2.50</kaina>
+                <kaina>2.5</kaina>
             </produktas>
         </produktai>
     </siunta>
     <siunta>
         <id>3</id>
-        <gavėjas>Ona Onaitė</gavėjas>
-        <adresas>Tilžės g. 22, Klaipėda</adresas>
+        <gavėjas>Ona Onaite</gavėjas>
+        <adresas>Tilzes g. 22, Klaipeda</adresas>
         <svoris>5.1</svoris>
-        <kaina>18.00</kaina>
+        <kaina>18.0</kaina>
         <pristatyta>true</pristatyta>
         <prioritetas>A</prioritetas>
         <produktai>
@@ -63,32 +63,9 @@
             </produktas>
             <produktas>
                 <id>6</id>
-                <pavadinimas>Kojinės</pavadinimas>
+                <pavadinimas>Kojines</pavadinimas>
                 <kiekis>4</kiekis>
                 <kaina>4.99</kaina>
-            </produktas>
-        </produktai>
-    </siunta>
-    <siunta>
-        <id>4</id>
-        <gavėjas>Tomas Tomaitis</gavėjas>
-        <adresas>Savanoriu pr. 5, Kaunas</adresas>
-        <svoris>1.2</svoris>
-        <kaina>7.99</kaina>
-        <pristatyta>false</pristatyta>
-        <prioritetas>B</prioritetas>
-        <produktai>
-            <produktas>
-                <id>7</id>
-                <pavadinimas>Telefonas</pavadinimas>
-                <kiekis>1</kiekis>
-                <kaina>399.99</kaina>
-            </produktas>
-            <produktas>
-                <id>8</id>
-                <pavadinimas>Dėklas</pavadinimas>
-                <kiekis>1</kiekis>
-                <kaina>9.99</kaina>
             </produktas>
         </produktai>
     </siunta>

@@ -7,6 +7,8 @@ import viko.eif.lt.simanaviciusd.PI24SN.task2.service.SiuntosServiceImpl;
 import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.HtmlTransformer;
 import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.PdfTransformer;
 import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.TransformationService;
+import java.io.File;
+import viko.eif.lt.simanaviciusd.PI24SN.task2.transform.XmlGenerator;
 
 /**
  * Pagrindinis aplikacijos paleidimo taškas.
@@ -32,15 +34,19 @@ public class Task2Application {
 		System.out.println("Web servisas paleistas: " + ENDPOINT_URL);
 		System.out.println("WSDL adresas: " + ENDPOINT_URL + "?wsdl");
 
-		// Vykdyti XSL transformacijas (Dependency Injection)
+		// servisas
+		SiuntosServiceImpl siuntosService = new SiuntosServiceImpl();
+		XmlGenerator xmlGenerator = new XmlGenerator();
 		TransformationService transformationService = new TransformationService(
 				new HtmlTransformer(),
 				new PdfTransformer()
 		);
 
 		try {
-			transformationService.transformToHtml("output.html");
-			transformationService.transformToPdf("output.pdf");
+			File xmlFile = new File("generated-data.xml");
+			xmlGenerator.generate(siuntosService.gautiVisasSiuntas(), xmlFile);
+			transformationService.transformToHtml("output.html", xmlFile);
+			transformationService.transformToPdf("output.pdf", xmlFile);
 		} catch (Exception e) {
 			System.err.println("Transformacijos klaida: " + e.getMessage());
 		}

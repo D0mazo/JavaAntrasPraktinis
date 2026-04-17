@@ -29,27 +29,47 @@ public class TransformationService {
     }
 
     /**
-     * Vykdo XML transformaciją į HTML formatą.
+     * Vykdo XML transformaciją į HTML formatą naudojant nurodytą XML failą.
      *
      * @param outputPath išvesties HTML failo kelias
+     * @param xmlFile    įvesties XML failas
      * @throws Exception jei transformacija nepavyksta
      */
-    public void transformToHtml(String outputPath) throws Exception {
-        File xmlFile = getXmlFile();
+    public void transformToHtml(String outputPath, File xmlFile) throws Exception {
         File outputFile = new File(outputPath);
         htmlTransformer.transform(xmlFile, outputFile);
     }
 
     /**
-     * Vykdo XML transformaciją į PDF formatą.
+     * Vykdo XML transformaciją į PDF formatą naudojant nurodytą XML failą.
+     *
+     * @param outputPath išvesties PDF failo kelias
+     * @param xmlFile    įvesties XML failas
+     * @throws Exception jei transformacija nepavyksta
+     */
+    public void transformToPdf(String outputPath, File xmlFile) throws Exception {
+        File outputFile = new File(outputPath);
+        pdfTransformer.transform(xmlFile, outputFile);
+    }
+
+    /**
+     * Vykdo XML transformaciją į HTML formatą naudojant numatytąjį data.xml failą.
+     *
+     * @param outputPath išvesties HTML failo kelias
+     * @throws Exception jei transformacija nepavyksta
+     */
+    public void transformToHtml(String outputPath) throws Exception {
+        transformToHtml(outputPath, getXmlFile());
+    }
+
+    /**
+     * Vykdo XML transformaciją į PDF formatą naudojant numatytąjį data.xml failą.
      *
      * @param outputPath išvesties PDF failo kelias
      * @throws Exception jei transformacija nepavyksta
      */
     public void transformToPdf(String outputPath) throws Exception {
-        File xmlFile = getXmlFile();
-        File outputFile = new File(outputPath);
-        pdfTransformer.transform(xmlFile, outputFile);
+        transformToPdf(outputPath, getXmlFile());
     }
 
     /**
