@@ -12,7 +12,8 @@
                 <style>
                     body {
                     font-family: Arial, sans-serif;
-                    margin: 40px;
+                    margin: 40px auto;
+                    max-width: 1000px;
                     background-color: #f4f4f4;
                     }
                     h1 {
@@ -20,15 +21,24 @@
                     }
                     h2 {
                     color: #e65c00;
+                    margin-top: 0;
                     }
                     h3 {
                     color: #f9a825;
+                    }
+                    .siunta-blokas {
+                    background-color: #ffffff;
+                    border: 1px solid #dddddd;
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
                     }
                     table {
                     width: 100%;
                     border-collapse: collapse;
                     background-color: #fff;
-                    margin-bottom: 30px;
+                    margin-bottom: 20px;
                     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                     }
                     th {
@@ -47,6 +57,18 @@
                     .produktai-table th {
                     background-color: #f9a825;
                     color: white;
+                    }
+                    .produktai-table td:first-child,
+                    .produktai-table th:first-child {
+                    width: 80px;
+                    }
+                    .produktai-table td:nth-child(3),
+                    .produktai-table th:nth-child(3) {
+                    width: 150px;
+                    }
+                    .produktai-table td:nth-child(4),
+                    .produktai-table th:nth-child(4) {
+                    width: 150px;
                     }
                     .pristatyta-taip {
                     color: green;
@@ -67,47 +89,49 @@
 
     <!-- Kiekvienos siuntos šablonas -->
     <xsl:template match="siunta">
-        <h2>Siunta Nr. <xsl:value-of select="id"/></h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Gavejas</th>
-                <th>Adresas</th>
-                <th>Svoris (kg)</th>
-                <th>Kaina (EUR)</th>
-                <th>Prioritetas</th>
-                <th>Pristatyta</th>
-            </tr>
-            <tr>
-                <td><xsl:value-of select="id"/></td>
-                <td><xsl:value-of select="gavėjas"/></td>
-                <td><xsl:value-of select="adresas"/></td>
-                <td><xsl:value-of select="svoris"/></td>
-                <td><xsl:value-of select="kaina"/></td>
-                <td><xsl:value-of select="prioritetas"/></td>
-                <td>
-                    <xsl:choose>
-                        <xsl:when test="pristatyta = 'true'">
-                            <span class="pristatyta-taip">Taip</span>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <span class="pristatyta-ne">Ne</span>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </td>
-            </tr>
-        </table>
+        <div class="siunta-blokas">
+            <h2>Siunta Nr. <xsl:value-of select="id"/></h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Gavejas</th>
+                    <th>Adresas</th>
+                    <th>Svoris (kg)</th>
+                    <th>Kaina (EUR)</th>
+                    <th>Prioritetas</th>
+                    <th>Pristatyta</th>
+                </tr>
+                <tr>
+                    <td><xsl:value-of select="id"/></td>
+                    <td><xsl:value-of select="gavėjas"/></td>
+                    <td><xsl:value-of select="adresas"/></td>
+                    <td><xsl:value-of select="svoris"/></td>
+                    <td><xsl:value-of select="kaina"/></td>
+                    <td><xsl:value-of select="prioritetas"/></td>
+                    <td>
+                        <xsl:choose>
+                            <xsl:when test="pristatyta = 'true'">
+                                <span class="pristatyta-taip">Taip</span>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <span class="pristatyta-ne">Ne</span>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </td>
+                </tr>
+            </table>
 
-        <h3>Produktai</h3>
-        <table class="produktai-table">
-            <tr>
-                <th>ID</th>
-                <th>Pavadinimas</th>
-                <th>Kiekis</th>
-                <th>Kaina (EUR)</th>
-            </tr>
-            <xsl:apply-templates select="produktai/produktas"/>
-        </table>
+            <h3>Produktai</h3>
+            <table class="produktai-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Pavadinimas</th>
+                    <th>Kiekis</th>
+                    <th>Kaina (EUR)</th>
+                </tr>
+                <xsl:apply-templates select="produktai/produktas"/>
+            </table>
+        </div>
     </xsl:template>
 
     <!-- Kiekvieno produkto šablonas -->
