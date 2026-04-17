@@ -80,3 +80,8 @@ task wsimport {
 		)
 	}
 }
+
+task runClient(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	mainClass = 'viko.eif.lt.simanaviciusd.PI24SN.task2.client.SiuntosClient'
+}
